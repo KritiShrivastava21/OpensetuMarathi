@@ -1,13 +1,134 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OpenSetu About Section</title>
-  <!-- Styles are same as provided in your original code -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
   <style>
-    /* (Same CSS as provided, unchanged) */
-    :root { --max-width: 1200px; --gutter: 24px; }
+    /* Menu bar styling */
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-menu a {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .top-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2000;
+    }
+    .side-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .side-menu a:hover {
+      color: #007BFF;
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      .top-menu a {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+
+  <!-- Top Menu -->
+  <nav class="top-menu">
+    <a href="index.html">होम</a>
+    <a href="about.html">आमच्या बद्दल</a>
+    <a href="beta.html">कायदेशीर</a>
+    <a href="documentation.html">डॉक्युमेंटेशन</a>
+    <a href="domain.html">डोमेन यादी</a>
+    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">होम</a>
+    <a href="about.html">आमच्या बद्दल</a>
+    <a href="beta.html">कायदेशीर</a>
+    <a href="documentation.html">डॉक्युमेंटेशन</a>
+    <a href="domain.html">डोमेन यादी</a>
+  </div>
+
+
+  <script>
+function openMenu() {
+  document.getElementById("sideMenu").style.width = "250px"; // Adjust width as needed
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").style.width = "0";
+}
+</script>
+
+
+
+
+  <style>
+    :root {
+      --max-width: 1200px;
+      --gutter: 24px;
+    }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
@@ -15,7 +136,11 @@
       color: #1F2937;
       background: #fff;
     }
-    .about-wrapper { background-color: #F7F9FB; position: relative; overflow: hidden; }
+    .about-wrapper {
+      background-color: #F7F9FB;
+      position: relative;
+      overflow: hidden;
+    }
     .white-tilted-layer {
       position: absolute; top: 60px;
       width: 100%; height: 1300px;
@@ -23,7 +148,10 @@
       transform: skewY(-5deg);
       z-index: 0;
     }
-    .blue-shapes { position: absolute; top: -45px; right: 0; z-index: 1; transform: skewY(-5deg); }
+    .blue-shapes {
+      position: absolute; top: -45px; right: 0;
+      z-index: 1; transform: skewY(-5deg);
+    }
     .blue1, .blue2 { position: absolute; transform: skewX(-30deg); }
     .blue1 {
       background-color: #80E9FF;
@@ -105,6 +233,7 @@
       border-radius: 15px;
       justify-items: center;
     }
+    
     .grid-box {
       background: #F5F7FA;
       padding: 1.5rem;
@@ -129,9 +258,14 @@
       line-height: 1.6;
       margin: 0;
     }
+
+    /* Breakpoints */
     @media (max-width: 768px) {
       .section { padding: 6rem var(--gutter) 3rem; }
-      .about-heading { font-size: 2rem; text-align: center; }
+      .about-heading {
+        font-size: 2rem;
+        text-align: center;
+      }
       .top-container { flex-direction: column; }
       .top-text { text-align: center; }
       .top-text h2 { font-size: 1.5rem; }
@@ -151,15 +285,16 @@
       <div class="blue2"></div>
     </div>
 
-    <div class="section">
+   <div class="section">
       <div class="top-container">
         <div class="top-text">
           <h1 class="about-heading">आमच्याबद्दल</h1>
-          <p class="highlight">एक नाव, एक भाषा, एक ओळख</p>
-          <h2>ओपनसेतू हा भारताच्या स्वतःच्या इंटरनेटचा पूल आहे.</h2>
-          <p>आम्ही प्रत्येक भारतीयाला त्यांच्या मातृभाषेत वेब वापरण्याची सुविधा देतो, इंग्रजी नाही, नवीन अॅप्स नाहीत, द्वारपाल नाहीत.</p>
-          <p>मुक्त, विकेंद्रित आणि समावेशक इंटरनेटच्या दृष्टिकोनातून जन्मलेले, ओपनसेतू वापरकर्त्यांना हँडशेकद्वारे समर्थित आणि भारतात रुजलेले बहुभाषिक वेब अनलॉक करण्यासाठी त्यांच्या DNS सेटिंग्ज बदलण्याची परवानगी देते. हे तुमच्या अटींवर इंटरनेट आहे, जिथे डोमेन नावे परदेशी लिपींमध्ये किंवा केंद्रीकृत नियंत्रणात नसून तुमच्या स्वतःच्या भाषेत आहेत, जी तुमच्या मालकीची आहे.</p>
-          <p>आम्ही इंटरनेटला मक्तेदारीपासून मुक्त करत आहोत आणि लोकांना एका वेळी एक नाव, एक भाषा, एक ओळख परत देत आहोत.</p>
+
+          <h2>ओपनसेतु हा पुल आहे
+            <br>भारताच्या स्वतःच्या इंटरनेटसाठी.</h2>
+          <p>आम्ही प्रत्येक भारतीयाला त्यांच्या मातृभाषेत वेब वापरण्याची सुविधा देतो, इंग्रजी नाही, नवीन अ‍ॅप्स नाहीत, कोणतेही गेटकीपर्स नाहीत.</p>
+          <p>मोकळ्या, विकेंद्रीकृत आणि समावेशक इंटरनेटच्या दृष्टिकोनातून जन्मलेले ओपनसेतु वापरकर्त्यांना फक्त DNS सेटिंग्ज बदलून बहुभाषिक वेबमध्ये प्रवेश देते, जे Handshake द्वारे चालते आणि भारताशी जोडलेले आहे. हे इंटरनेट तुमच्या अटींवर आहे, जिथे डोमेन नावे विदेशी लिपीत किंवा केंद्रीकृत नियंत्रणात नाहीत, तर तुमच्या भाषेत आहेत, आणि ती तुमची स्वतःची आहे.</p>
+          <p>आम्ही इंटरनेटवर असलेल्या मोनोपोलींमधून इंटरनेट परत मिळवत आहोत आणि ते लोकांपर्यंत परत देत आहोत, एक नाव, एक भाषा, एक ओळख एकावेळी.</p>
         </div>
         <div class="top-image">
           <img src="img5.png" alt="About Image">
@@ -168,19 +303,21 @@
 
       <div class="grid">
         <div class="grid-box">
-          <h3>बांधकाम व्यावसायिकांसाठी</h3>
-          <p>ओपनसेतू हे नवोपक्रमांसाठी एक मैदान आहे. स्थानिक भाषेतील अॅप्स बनवणाऱ्या डेव्हलपर्सपासून ते डिजिटल ओळखीची पुनर्कल्पना करणाऱ्या स्टार्टअप्सपर्यंत, भारताकडे आता विकेंद्रित पाया तयार आहे. मूळ डोमेन नावे, बहुभाषिक लॉगिन आणि खुल्या DNS सह, तुम्ही १.४ अब्ज लोकांशी त्यांच्या स्वतःच्या भाषेत थेट बोलणाऱ्या सेवा तयार करू शकता.</p>
+          <h3>निर्मात्यांसाठी</h3>
+          <p>ओपनसेतु हे नवकल्पनांसाठी एक प्लेग्राऊंड आहे. विकासक जे स्थानिक भाषेत अ‍ॅप्स तयार करतात किंवा स्टार्टअप्स जे डिजिटल ओळख पुनर्रचना करतात, भारताकडे आता विकेंद्रीकृत पाया आहे जो आकार घेण्यास तयार आहे. स्थानिक डोमेन नावे, बहुभाषिक लॉगिन आणि एक खुला DNS वापरून, तुम्ही अशा सेवा तयार करू शकता ज्या थेट 1.4 अब्ज लोकांच्या आवाजाशी त्यांच्या स्वतःच्या भाषेत संवाद करतात.</p>
         </div>
         <div class="grid-box">
           <h3>गुंतवणूकदारांसाठी</h3>
-          <p>भारत हा खुल्या इंटरनेटवर मानवतेचा सर्वात मोठा भाग आहे. ओपनसेतू ही केवळ पायाभूत सुविधा नाही, तर ती पायाभूत सुविधा आहे. भाषेतील अडथळा दूर करून आणि व्यक्तींना डिजिटल मालकी परत करून आम्ही पुढील अब्ज वापरकर्त्यांना अनलॉक करत आहोत. ही परिसंस्था ओएस आणि ब्राउझरसारख्या इन्फ्रा टेकपासून ते डिजिटल ओळख, पेमेंट, वाणिज्य आणि संप्रेषण यासारख्या सेवांपर्यंत सर्वकाही पुन्हा आकार देईल, हे सर्व भारताच्या सर्वात पायाभूत थरावर आधारित आहे: त्याचे स्वतःचे इंटरनेट. त्यावर बांधलेल्या रेल आणि संस्थापकांमध्ये गुंतवणूक करा आणि तुम्ही डिजिटल भारताच्या भविष्यात गुंतवणूक कराल.</p>
+          <p>भारत हे मुक्त इंटरनेटवर मानवतेचा सर्वात मोठा भाग आहे. ओपनसेतु फक्त इन्फ्रास्ट्रक्चर नाही, हे इन्फ्रा-पॉवर आहे. आम्ही भाषा अडथळा दूर करून आणि डिजिटल मालकी व्यक्तींना परत देऊन पुढील अब्ज वापरकर्त्यांना अनलॉक करत आहोत. हा पर्यावरण तंत्रज्ञानापासून (OS आणि ब्राउझर्स) ते डिजिटल ओळख, पेमेंट्स, कॉमर्स आणि कम्युनिकेशनसारख्या सेवांपर्यंत सर्वकाही पुन्हा आकार देईल, सर्व भारताच्या पाया असलेल्या स्तरावर: त्याच्या स्वतःच्या इंटरनेटवर. यावर काम करणाऱ्या रेल्स आणि फाउंडर्समध्ये गुंतवणूक करा आणि तुम्ही डिजिटल भारताच्या भविष्यात गुंतवणूक करत आहात.</p>
         </div>
         <div class="grid-box">
           <h3>सरकारांसाठी</h3>
-          <p>डिजिटल सार्वजनिक वस्तू डिजिटल सार्वजनिक पायाभूत सुविधांना पात्र आहेत. ओपनसेतु पारदर्शकता, समावेशकता आणि सार्वभौमत्वाच्या गाभ्यासह बांधले गेले आहे. आम्ही इंडिया स्टॅकच्या दृष्टिकोनाशी सुसंगत आहोत आणि प्रत्येक नागरिकाला त्यांच्या मूळ भाषेत डिजिटल सेवा मिळविण्यास सक्षम करतो. ग्रामीण प्रवेशापासून ते राष्ट्रीय स्तरावर, ओपनसेतु सरकारांना पूर्ण-स्टॅक डिजिटल समावेशासाठी एक सुरक्षित, सार्वभौम मार्ग प्रदान करते. भारताला जागतिक इंटरनेटशी जुळवून घेण्याची गरज नाही. ओपनसेतुच्या मदतीने, आपण आपल्या स्वतःच्या भाषेत, आपल्या स्वतःच्या अटींवर पुढे जाऊ शकतो.</p>
+          <p>डिजिटल सार्वजनिक सुविधा डिजिटल सार्वजनिक इन्फ्रास्ट्रक्चरची हक्कदार आहेत. ओपनसेतु पारदर्शकता, समावेशिता आणि सार्वभौमत्व लक्षात ठेवून तयार केलेले आहे. आम्ही India Stack च्या दृष्टीकोनाशी जुळतो आणि प्रत्येक नागरिकाला त्यांच्या स्थानिक भाषेत डिजिटल सेवा वापरण्याची क्षमता देतो. ग्रामीण प्रवेशापासून राष्ट्रीय पातळीपर्यंत, ओपनसेतु सरकारांना पूर्ण-स्टॅक डिजिटल समावेशासाठी सुरक्षित आणि सार्वभौम मार्ग पुरवतो. 
+भारताला जागतिक इंटरनेटला मागे राहायची गरज नाही. ओपनसेतु सह, आम्ही आपल्या स्वतःच्या भाषेत, आपल्या अटींवर पुढे जात आहोत.</p>
         </div>
       </div>
     </div>
   </section>
+
 </body>
 </html>
